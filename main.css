@@ -53,7 +53,13 @@ textarea:focus{
   margin-top: 65%;
   font-size: 25px;
 }
+#app{
+  width: 600px;
+  height: 800px;
+  padding: 0px;
+  margin: 0px;
+  position: fixed;
+  top: 0px;
+  left: 0px;
 
-#info{
-  display: none;
 }

@@ -1,9 +1,13 @@
 'use babel';
 
 import React from 'react';
+import startScreen from './start_Screen.js';
 
 export default class App extends React.Component {
-  render() {
-    return <div>Hello from React with ES6 :)</div>;
+  render(){
+    return (
+      <h1> PASSWORD </h1>
+      <startScreen> </startScreen>
+    );
   }
 }
