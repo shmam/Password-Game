@@ -1,0 +1,59 @@
+@import 'https://fonts.googleapis.com/css?family=Bungee';
+@import 'https://fonts.googleapis.com/css?family=Anonymous+Pro';
+@import 'https://fonts.googleapis.com/css?family=Oswald';
+
+body{
+  color: #00004d;
+  font-family: 'Anonymous Pro', monospace;
+}
+
+h1{
+  font-family: 'Bungee', cursive;
+  font-size: 70px;
+  font-weight:700;
+  font-kerning: normal;
+  margin-top: 30px;
+  margin-bottom: 40px;
+  margin-left: 15%;
+}
+p{
+  font-size: 20px;
+}
+textarea{
+  margin-top: 30px;
+  resize: none;
+  color:#00004d;
+  font-family: 'Anonymous Pro', monospace;
+  font-size: 30px;
+  text-align: center;
+  font-weight: 400;
+  width: 33%;
+  height: 30px;
+  margin-left: 33%;
+  border-radius: 20px;
+  border-width: medium;
+  border-color: #00004d;
+
+}
+
+textarea:focus{
+  outline:0px !important;
+  -webkit-appearance:none;
+}
+
+.options{
+  width: 60%;
+  margin-left: 15%;
+}
+
+.footer{
+  color: #f2f2f2;
+  text-align: center;
+  font-family: 'Oswald', sans-serif;
+  margin-top: 65%;
+  font-size: 25px;
+}
+
+#info{
+  display: none;
+}
