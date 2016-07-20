@@ -7,12 +7,15 @@ var DATA = [
 ]
 
 var GameContainer = React.createClass({
+  
+
   render: function(){
     return(
       <div>
       <CountdownTimer secondsRemaining="500" />
       <UserImage />
       <TextBox />
+      <ProgressBar />
       <UserInformation />
       </div>
     );
@@ -62,12 +65,20 @@ var UserInformation = React.createClass({
       <div id="uinfo">
         <h2 id="uname"> Name: Sam Crochet </h2>
         <p id="type"> Type: alphabetic </p>
-        <p id="ubio"> Bio: Loves peanut butter, programming, and his dog named moonpie. Often reads menium articles and listenes to podcasts about current events </p>
+        <p id="ubio"> Bio: Loves peanut butter, programming, and his dog named moonpie. Often reads medium articles and listenes to podcasts about current events </p>
         <p id="birthday"> Birthday: December 12th, 1997 </p>
         <p id="age"> Age: 18 </p>
       </div>
     );
   }
+})
+
+var ProgressBar = React.createClass({
+  render: function() {
+    return (<div id="progressbarcontainer"> <div id="progressbar" > </div> </div>);
+  }
+
+
 })
 
 

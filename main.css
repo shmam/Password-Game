@@ -101,3 +101,21 @@ article{
   font-size: 30px;
 
 }
+
+#progressbarcontainer{
+  width:50%;
+  margin-left: 25%;
+  height: 8px;
+  border-radius: 5px;
+  margin-top: 20px;
+  border-style: solid;
+  border-width: 2px;
+  border-color: #00004d;
+}
+
+#progressbar{
+  width: 50%;
+  height: 8px;
+  border-radius: 5px;
+  background-color: #66ff66;
+}
