@@ -3,9 +3,7 @@ import React from 'react';
 
 
 var TextBox = React.createClass({
-  getInitialState: function(){
 
-  },
 
   handleChange: function(e){
     var string = e.target.value.toLowerCase();

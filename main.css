@@ -16,6 +16,8 @@ h1{
   margin-bottom: 40px;
   margin-left: 15%;
 }
+
+
 p{
   font-size: 20px;
 }
@@ -67,4 +69,35 @@ textarea:focus{
 article{
   width: 60%;
   margin-left: 15%;
+}
+
+#time{
+  color: #80aaff;
+  font-family: 'Oswald', sans-serif;
+  font-size: 50px;
+  text-align: center;
+  margin-top: 10px;
+  padding: 20px;
+
+}
+
+#userimage{
+  background-color: red;
+  width: 20%;
+  margin-left: 40%;
+  height: 120px;
+  border-radius: 10px;
+}
+
+#uinfo{
+  width: 60%;
+  margin-left: 15%;
+
+
+}
+
+#uname{
+  text-align: center;
+  font-size: 30px;
+
 }
