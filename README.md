@@ -1,3 +1,2 @@
 # Password-Game
-A fun password cracking game made with Electron
-More coming soon...
+A fun password cracking game made with Electron.

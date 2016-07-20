@@ -1,7 +1,10 @@
 import React from 'react';
 import {render} from 'react-dom';
-import App from '../components/app.js';
+var App = require('../components/app.js')
+
 
 window.onload = function(){
-  render(<App />, document.getElementById("app"));
+  console.log("Loading app")
+  render(<App />, document.getElementById('app'));
+  document.getElementById('input').focus();
 }

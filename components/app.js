@@ -1,13 +1,22 @@
 'use babel';
 
 import React from 'react';
-import startScreen from './start_Screen.js';
+var StartScreen =  require('./startscreen')
+var TextBox = require('./textbox')
+console.log("loading app");
 
-export default class App extends React.Component {
-  render(){
-    return (
-      <h1> PASSWORD </h1>
-      <startScreen> </startScreen>
+
+var App = React.createClass({
+  render: function(){
+    return(
+      <div>
+      <StartScreen />
+      <TextBox />
+      </div>
     );
   }
-}
+});
+
+
+
+module.exports = App;

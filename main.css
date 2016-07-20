@@ -63,3 +63,8 @@ textarea:focus{
   left: 0px;
 
 }
+
+article{
+  width: 60%;
+  margin-left: 15%;
+}
