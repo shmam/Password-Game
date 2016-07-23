@@ -107,7 +107,6 @@ article{
   margin-left: 25%;
   height: 8px;
   border-radius: 5px;
-  margin-top: 20px;
   border-style: solid;
   border-width: 2px;
   border-color: #00004d;
@@ -119,3 +118,11 @@ article{
   border-radius: 5px;
   background-color: #66ff66;
 }
+
+iframe{
+    border: 0;
+    overflow: hidden;
+}
+ #progressbartitle{
+   height: 10px;
+ }

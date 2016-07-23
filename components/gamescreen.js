@@ -1,13 +1,13 @@
 'use babel'
 import React from 'react';
-var TextBox = require('./textbox')
+
 
 var DATA = [
   {name:'Sam Crochet', password:'moonpie',type:'alphabetic',  bio:'Loves peanut butter, programming, and his dog named moonpie. Often reads menium articles and listenes to podcasts about current events', birthday:"December 14th, 1997", age:"18"}
 ]
 
 var GameContainer = React.createClass({
-  
+
 
   render: function(){
     return(
@@ -80,6 +80,34 @@ var ProgressBar = React.createClass({
 
 
 })
+
+var TextBox = React.createClass({
+  getInitialState: function(){
+    return {
+      password: 'null'
+    }
+  },
+
+  handleChange: function(e){
+    var string = e.target.value.toLowerCase();
+    console.log(string);
+    if(string=="info"){
+      console.log('unmount');
+      componentWillUnmount();
+    }
+    this.setState({
+      password: string
+    });
+
+  },
+
+  render: function(){
+    return(
+      <textarea id="input" onChange={this.handleChange} > </textarea>
+    );
+
+  }
+});
 
 
 module.exports = GameContainer

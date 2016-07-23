@@ -5,7 +5,6 @@ var StartScreen = React.createClass({
 
 
   render: function(){
-    console.log("Loading StartScreen");
     return (
       <div>
         <h1> P@$$W0RD </h1>

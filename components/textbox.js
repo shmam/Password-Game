@@ -12,9 +12,14 @@ var TextBox = React.createClass({
   handleChange: function(e){
     var string = e.target.value.toLowerCase();
     console.log(string);
+    if(string=="info"){
+      console.log('unmount');
+      componentWillUnmount();
+    }
     this.setState({
       password: string
     });
+
   },
 
   render: function(){
