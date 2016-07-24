@@ -14,7 +14,7 @@ var GameContainer = React.createClass({
   render: function(){
     return(
       <div>
-      <CountdownTimer secondsRemaining="500" />
+      <CountdownTimer secondsRemaining="200" />
       <UserImage />
       <TextBox password = {this.props.user.password}/>
       <UserInformation user={this.props.user} />
@@ -96,18 +96,21 @@ var TextBox = React.createClass({
     for(var i=0;i<this.state.string.length;i++){
       if (this.props.password[i] == this.state.string[i]) count++;
     }
-    this.setState({correctchars:count});
+    //this.setState({correctchars:count});
+    this.state.correctchars = count;
     this.findWidth();
   },
 
   findWidth(){
     var num = (this.state.correctchars/this.state.length)*100;
     var n = num.toString() + '%';
+    this.state.width = n;
     this.setState({width:n})
   },
 
   handleChange: function(e){
-    this.setState({string:e.target.value.toLowerCase()});
+    //this.setState({string:e.target.value.toLowerCase()});
+    this.state.string = e.target.value.toLowerCase()
     console.log(this.state.string);
     this.validate();
   },

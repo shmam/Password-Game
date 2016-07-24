@@ -10,24 +10,30 @@ var App = React.createClass({
   getInitialState: function(){
     return{
       string: null,
-      current_page: "GAME"
+      current_page:"HOME"
     }
   },
 
-  handleChange(e){
-    this.setState({string: e.target.value.toLowerCase()});
-    console.log(this.state.string);
+  handlePage(){
+    if(this.state.string == "start") this.state.current_page = "GAME"
+    else if(this.state.string == "info") this.state.current_page = "INFO"
+    else if(this.state.string == "home") this.state.current_page = "HOME"
+    this.setState({current_page:this.state.current_page})
     console.log(this.state.current_page);
-    if(this.state.string === "start") this.setState({current_page:"GAME"})
-    else if(this.state.string === "info") this.setState({current_page:"INFO"})
-    else if(this.state.string === "home") this.setState({current_page:"HOME"})
-
 
   },
 
+  handleChange(e){
+    this.state.string = e.target.value.toLowerCase();
+    this.setState({string:this.state.string})
+    console.log(this.state.string);
+    this.handlePage();
+  },
+
+
   returnCurrentPage(current_page){
-    if(current_page == "HOME") return( <div> <StartScreen /> <textarea id="input" onChange={this.handleChange} > </textarea> </div>)
-    else if(current_page == "INFO") return (<div> <InfoScreen /> <textarea id="input" onChange={this.handleChange} > </textarea> </div>)
+    if(current_page == "HOME") return( <div> <StartScreen /> <textarea id="input" onChange={this.handleChange} /></div>)
+    else if(current_page == "INFO") return (<div> <InfoScreen /> <textarea id="input" onChange={this.handleChange} /></div>)
     else if(current_page == "GAME") return <GameContainer />
   },
 

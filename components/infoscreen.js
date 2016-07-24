@@ -14,8 +14,12 @@ var InfoScreen = React.createClass({
         <p> Components made with React using JavaScript, JSX, HTML and CSS. App packaged and run with Electron.</p>
         <h2> Follow me on social media. </h2>
         <iframe src="https://ghbtns.com/github-btn.html?user=shmam&type=follow&count=false&size=large" frameborder="0" scrolling="0" width="200px" height="30px"></iframe>
-        <iframe src="https://platform.twitter.com/widgets/follow_button.html?screen_name=shmam_&show_screen_name=true&show_count=false&size=l" id="twitterbutton" title="Follow shmam_ on Twitter" width="80" height="30" ></iframe>
-        
+        <iframe src="https://platform.twitter.com/widgets/follow_button.html?screen_name=shmam_&show_screen_name=true&show_count=false&size=l" id="twitterbutton" title="Follow shmam_ on Twitter" width="150" height="30" ></iframe>
+
+        <p>Start: Begin the game </p>
+        <p>Home: Back to home screen </p>
+        <p>Quit: Exit the game </p>
+
         </article>
       </div>
     );
