@@ -3,7 +3,9 @@
 P@$$W0RD is a simple yet challenging password cracking game. Take your shot at cracking your way into the accounts, with only minimal information provided. Prompted with only a picture, bio, and age, see if you can guess the right password.
 
 ### Status: Development :closed_lock_with_key:
-While the game is still currently in development, a beta will be released soon for testing and trial purposes.
+While the game is still currently in development, a beta will be released soon for testing and trial purposes
+
+![passwordGIF](https://media.giphy.com/media/3o7TKSKKglzfglusgg/giphy.gif)
 
 
 ### Built with React and Electron :octocat:

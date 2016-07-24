@@ -3,7 +3,7 @@ import React from 'react';
 
 
 var DATA = [
-  {name:'Sam Crochet', password:'moonpie',type:'alphabetic',  bio:'Loves peanut butter, programming, and his dog named moonpie. Often reads menium articles and listenes to podcasts about current events', birthday:"December 14th, 1997", age:"18"}
+  {name:'Samuel Crochet', password:'password123',type:'alpha-numeric',  bio:'Loves peanut butter, programming, and his dog named moonpie.', birthday:"December 14th, 1997", age:"18"}
 ]
 
 var GameContainer = React.createClass({
@@ -52,8 +52,8 @@ var CountdownTimer = React.createClass({
 var UserImage = React.createClass({
   render: function(){
     return(
-      <div id="userimage">
-        <img src="../imgs/sam_crochet.jpg" />
+      <div >
+        <img src="https://avatars3.githubusercontent.com/u/19582543?v=3&s=460" width="120px" height="120px" id="userimage"/>
       </div>
     );
   }
