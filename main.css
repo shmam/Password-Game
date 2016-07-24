@@ -103,6 +103,7 @@ article{
 }
 
 #progressbarcontainer{
+  margin-top: 20px;
   width:50%;
   margin-left: 25%;
   height: 8px;
@@ -123,6 +124,3 @@ iframe{
     border: 0;
     overflow: hidden;
 }
- #progressbartitle{
-   height: 10px;
- }

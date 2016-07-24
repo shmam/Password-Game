@@ -7,16 +7,17 @@ var DATA = [
 ]
 
 var GameContainer = React.createClass({
-
+  getDefaultProps: function(){
+    return {user: DATA[0]}
+  },
 
   render: function(){
     return(
       <div>
       <CountdownTimer secondsRemaining="500" />
       <UserImage />
-      <TextBox />
-      <ProgressBar />
-      <UserInformation />
+      <TextBox password = {this.props.user.password}/>
+      <UserInformation user={this.props.user} />
       </div>
     );
   }
@@ -63,11 +64,11 @@ var UserInformation = React.createClass({
   render: function(){
     return (
       <div id="uinfo">
-        <h2 id="uname"> Name: Sam Crochet </h2>
-        <p id="type"> Type: alphabetic </p>
-        <p id="ubio"> Bio: Loves peanut butter, programming, and his dog named moonpie. Often reads medium articles and listenes to podcasts about current events </p>
-        <p id="birthday"> Birthday: December 12th, 1997 </p>
-        <p id="age"> Age: 18 </p>
+        <h2 id="uname"> Name: {this.props.user.name} </h2>
+        <p id="type"> Type: {this.props.user.type}</p>
+        <p id="ubio"> Bio: {this.props.user.bio} </p>
+        <p id="birthday"> Birthday: {this.props.user.birthday} </p>
+        <p id="age"> Age: {this.props.user.age} </p>
       </div>
     );
   }
@@ -75,35 +76,48 @@ var UserInformation = React.createClass({
 
 var ProgressBar = React.createClass({
   render: function() {
-    return (<div id="progressbarcontainer"> <div id="progressbar" > </div> </div>);
+    var divStyle = {width:this.props.progress}
+    return (<div id="progressbarcontainer"> <div id="progressbar" style={divStyle}> </div> </div>);
   }
-
-
 })
 
 var TextBox = React.createClass({
   getInitialState: function(){
     return {
-      password: 'null'
+      string: 'null',
+      correctchars: 0,
+      length: this.props.password.length,
+      width:"0%"
     }
   },
 
-  handleChange: function(e){
-    var string = e.target.value.toLowerCase();
-    console.log(string);
-    if(string=="info"){
-      console.log('unmount');
-      componentWillUnmount();
+  validate(){
+    var count = 0;
+    for(var i=0;i<this.state.string.length;i++){
+      if (this.props.password[i] == this.state.string[i]) count++;
     }
-    this.setState({
-      password: string
-    });
+    this.setState({correctchars:count});
+    this.findWidth();
+  },
 
+  findWidth(){
+    var num = (this.state.correctchars/this.state.length)*100;
+    var n = num.toString() + '%';
+    this.setState({width:n})
+  },
+
+  handleChange: function(e){
+    this.setState({string:e.target.value.toLowerCase()});
+    console.log(this.state.string);
+    this.validate();
   },
 
   render: function(){
     return(
+      <div>
       <textarea id="input" onChange={this.handleChange} > </textarea>
+      <ProgressBar progress={this.state.width}/>
+      </div>
     );
 
   }

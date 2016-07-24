@@ -10,7 +10,7 @@ var App = React.createClass({
   getInitialState: function(){
     return{
       string: null,
-      current_page: "INFO"
+      current_page: "GAME"
     }
   },
 
