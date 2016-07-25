@@ -13,7 +13,7 @@ h1{
   font-weight:700;
   font-kerning: normal;
   margin-top: 30px;
-  margin-bottom: 40px;
+  margin-bottom: 5px;
   margin-left: 15%;
 }
 
@@ -33,7 +33,7 @@ textarea{
   height: 30px;
   margin-left: 33%;
   border-radius: 20px;
-  border-width: medium;
+  border-width: 2px;;
   border-color: #00004d;
 
 }
@@ -82,7 +82,9 @@ article{
 }
 
 #userimage{
-  background-color: red;
+  border-style: solid;
+  border-width: 2px;
+  border-color:##00004d;
   width: 20%;
   margin-left: 40%;
   height: 120px;
@@ -124,3 +126,12 @@ iframe{
     border: 0;
     overflow: hidden;
 }
+
+#versiontag{
+  margin-top: 0px;
+  padding-top: 0px;
+  font-weight: 100;
+  font-size: 30px;
+  margin-bottom: 50px;
+}
+textarea::-webkit-input-placeholder {  color: #00004d ;}

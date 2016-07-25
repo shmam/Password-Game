@@ -3,7 +3,10 @@ import React from 'react';
 
 
 var DATA = [
-  {name:'Samuel Crochet', password:'password123',type:'alpha-numeric',  bio:'Loves peanut butter, programming, and his dog named moonpie.', birthday:"December 14th, 1997", age:"18"}
+  {name:'Samuel Crochet', password:'moonpie',type:'alphabetic',  bio:'Loves peanut butter, programming, and his dog named moonpie.', birthday:"December 14th, 1997", age:"18", placeholder:"•••••••", time: "100"},
+  {name:'Gertrude Hankenhoff', password:'moonpie',type:'alphabetic',  bio:'Loves peanut butter, programming, and his dog named moonpie.', birthday:"December 14th, 1997", age:"18", placeholder:"•••••••", time: "100"},
+
+
 ]
 
 var GameContainer = React.createClass({
@@ -14,9 +17,9 @@ var GameContainer = React.createClass({
   render: function(){
     return(
       <div>
-      <CountdownTimer secondsRemaining="200" />
+      <CountdownTimer secondsRemaining={this.props.user.time} />
       <UserImage />
-      <TextBox password = {this.props.user.password}/>
+      <TextBox password = {this.props.user.password} placeholder = {this.props.user.placeholder}/>
       <UserInformation user={this.props.user} />
       </div>
     );
@@ -53,7 +56,7 @@ var UserImage = React.createClass({
   render: function(){
     return(
       <div >
-        <img src="https://avatars3.githubusercontent.com/u/19582543?v=3&s=460" width="120px" height="120px" id="userimage"/>
+        <img src="../imgs/001.jpg" width="120px" height="120px" id="userimage"/>
       </div>
     );
   }
@@ -118,7 +121,7 @@ var TextBox = React.createClass({
   render: function(){
     return(
       <div>
-      <textarea id="input" onChange={this.handleChange} > </textarea>
+      <textarea id="input" onChange={this.handleChange} placeholder={this.props.placeholder} />
       <ProgressBar progress={this.state.width}/>
       </div>
     );
