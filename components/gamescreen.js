@@ -1,25 +1,29 @@
 'use babel'
 import React from 'react';
+var DATA = require('./gamedata.js')
 
-
-var DATA = [
-  {name:'Samuel Crochet', password:'moonpie',type:'alphabetic',  bio:'Loves peanut butter, programming, and his dog named moonpie.', birthday:"December 14th, 1997", age:"18", placeholder:"•••••••", time: "100"},
-  {name:'Gertrude Hankenhoff', password:'moonpie',type:'alphabetic',  bio:'Loves peanut butter, programming, and his dog named moonpie.', birthday:"December 14th, 1997", age:"18", placeholder:"•••••••", time: "100"},
-
-
-]
 
 var GameContainer = React.createClass({
   getDefaultProps: function(){
-    return {user: DATA[0]}
+    return {user: DATA[4]}
   },
 
+  getInitialState: function(){
+    return{
+      i:0
+    }
+  },
+
+  validatePassword(){
+    this.state.i = this.state.i + 1
+    this.props.user = DATA[this.state.i];
+    this.setState({i:this.state.i})
+  },
   render: function(){
     return(
       <div>
       <CountdownTimer secondsRemaining={this.props.user.time} />
-      <UserImage />
-      <TextBox password = {this.props.user.password} placeholder = {this.props.user.placeholder}/>
+      <TextBox password = {this.props.user.password} placeholder = {this.props.user.placeholder} solved = {this.validatePassword.bind(this)}/>
       <UserInformation user={this.props.user} />
       </div>
     );
@@ -94,14 +98,21 @@ var TextBox = React.createClass({
     }
   },
 
+  propTypes: function() {
+    return{solved: React.PropTypes.func}
+  },
+
   validate(){
     var count = 0;
     for(var i=0;i<this.state.string.length;i++){
       if (this.props.password[i] == this.state.string[i]) count++;
     }
-    //this.setState({correctchars:count});
+
     this.state.correctchars = count;
     this.findWidth();
+    if(this.state.correctchars = this.state.length){
+      this.props.solved();
+    }
   },
 
   findWidth(){
@@ -109,6 +120,7 @@ var TextBox = React.createClass({
     var n = num.toString() + '%';
     this.state.width = n;
     this.setState({width:n})
+
   },
 
   handleChange: function(e){
