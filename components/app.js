@@ -43,8 +43,8 @@ var App = React.createClass({
 
   render: function(){
     return(
-      <div>
-        {this.returnCurrentPage(this.state.current_page)}
+      <div id="background-page">
+        <div id="current-page">{this.returnCurrentPage(this.state.current_page)}</div>
       </div>
     );
   }
