@@ -13,7 +13,8 @@ var GameContainer = React.createClass({
       length: DATA[usercount].password.length,
       width:"0%",
       secondsRemaining: 0,
-      gameover: 'false'
+      gameover: 'false',
+      timecolor: '#80aaff'
     }
   },
 
@@ -25,20 +26,36 @@ var GameContainer = React.createClass({
 
     this.state.correctchars = count;
     this.findWidth();
+
+
     if(this.state.correctchars == this.state.user.password.length){
 
+
+      this.setState({gameover:'next'})
+      setTimeout(this.setState({gameover:'false'}), 5000);
+
+
       usercount++;
+
       if(usercount==5){
-        this.setState({gameover: 'end'})
+        this.setState({gameover:'end'})
       }
-      this.state.user=DATA[usercount]
+
+      this.findWidth();
+      this.setState({user:DATA[usercount]})
       this.setState({ secondsRemaining: this.state.user.time });
       document.getElementById("input").value = ""
+      this.setState({string: 'null'})
       this.setState({correctchars:0})
       this.setState({width:"0%"})
-      this.setState({user:DATA[usercount]})
+      this.setState({length: DATA[usercount].password.length})
+      this.setState({gameover: 'false'})
+
+      this.setState({timecolor: '#80aaff'})
+
 
     }
+
   },
 
   findWidth(){
@@ -58,6 +75,10 @@ var GameContainer = React.createClass({
 
   tick: function() {
     this.setState({secondsRemaining: this.state.secondsRemaining - 1});
+    if (this.state.secondsRemaining <= 10) {
+      this.setState({timecolor:'#800000'})
+    }
+
     if (this.state.secondsRemaining <= 0) {
       this.state.gameover = 'true';
       this.setState({gameover: 'true'})
@@ -72,11 +93,16 @@ var GameContainer = React.createClass({
     clearInterval(this.interval);
   },
 
-  render: function(){
+  handlePage(){
+
+    var timeStyle = {
+      color:this.state.timecolor
+    };
+
     if(this.state.gameover == 'false'){
       return(
         <div>
-        <div id="time">{this.state.secondsRemaining}</div>
+        <div id="time" style={timeStyle}>{this.state.secondsRemaining}</div>
         <textarea id="input" onChange={this.handleChange} placeholder={this.state.user.placeholder} />
         <ProgressBar progress={this.state.width}/>
         <UserInformation user={this.state.user} />
@@ -85,13 +111,24 @@ var GameContainer = React.createClass({
     }
 
     else if(this.state.gameover == 'end'){
-      <div>
+      return(<div>
         <h1> Congrats! </h1>
         <article class="options">
-        <p> You beat the game! Thank you for playing. Please give me feedback or thoughts about this beta.  </p>
+        <p> You beat the beta! Thank you for playing. Please give me feedback or thoughts about this beta.  </p>
         <p> Press Command+R to restart </p>
         </article>
-      </div>
+      </div>);
+    }
+
+    else if (this.state.gameover == 'next'){
+      return(
+        <div>
+        <h1> Correct! </h1>
+        <article class="options">
+        <p> Onto the next level...</p>
+        </article>
+        </div>
+      )
     }
 
     else{
@@ -104,6 +141,14 @@ var GameContainer = React.createClass({
         </div>
       )
     }
+  },
+
+  render: function(){
+
+
+    return(this.handlePage())
+
+
   }
 })
 

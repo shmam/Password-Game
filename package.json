@@ -12,7 +12,9 @@
   },
   "homepage": "https://github.com/shmam/Password-Game/blob/master/README.md",
   "scripts": {
-    "start": "electron ."
+    "start": "electron .",
+    "package": "asar pack P@$$W0RD.app/Contents/Resources/app P@$$W0RD.app/Contents/Resources/app.asar",
+    "build": "electron-packager . P@$$W0RD --ignore=node_modules/electron-* && cp icon.ico P@$$W0RD.app/Contents/Resources/atom.icns"
   },
   "dependencies": {
     "babel-preset-es2015": "^6.3.13",
